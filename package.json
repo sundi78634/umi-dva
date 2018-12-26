@@ -7,6 +7,18 @@
     "lint": "eslint --ext .js src mock tests",
     "precommit": "lint-staged"
   },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "dva": "^2.4.1",
+    "express": "^4.16.4",
+    "express-http-proxy": "^1.5.0",
+    "helmet": "^3.15.0",
+    "path": "^0.12.7",
+    "querystring": "^0.2.0",
+    "react": "^16.7.0",
+    "url-join": "^4.0.0"
+  },
   "devDependencies": {
     "babel-eslint": "^9.0.0",
     "eslint": "^5.4.0",
@@ -17,7 +29,7 @@
     "eslint-plugin-react": "^7.11.1",
     "husky": "^0.14.3",
     "lint-staged": "^7.2.2",
-    "umi": "^2.1.2",
+    "umi": "^2.2.9",
     "umi-plugin-react": "^1.1.1"
   },
   "lint-staged": {

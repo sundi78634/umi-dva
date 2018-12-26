@@ -17,7 +17,7 @@ export default {
     setup({ dispatch, history }) {
       return history.listen(({ pathname, query }) => {
         if (pathname === '/users') {
-          dispatch({ type: 'fetch', payload: query });
+          dispatch({ type: 'fetch' });
         }
       });
     },
@@ -25,12 +25,12 @@ export default {
   
   effects: {
     * fetch({ payload }, { call, put }) {
-      const { data } = yield call(UsersServices.fetch, payload);
+      const data = yield call(UsersServices.fetch, payload);
       yield put({
         type: 'updateState',
         payload: {
-          dataSource: data
-        }
+          dataSource: data,
+        },
       });
     },
   },
@@ -39,7 +39,7 @@ export default {
     updateState(state, action) {
       return {
         ...state,
-        ...action.payload
+        ...action.payload,
       };
     },
   },

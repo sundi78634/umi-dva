@@ -11,11 +11,17 @@ export default {
       hardSource: true,
       routes: {
         exclude: [
-          /components/,
+          /model\.(j | t)sx?$/,
+          /service\.(j | t)sx?$/,
+          /models\//,
+          /components\//,
+          /services\//,
+        
         ],
       },
     }],
   ],
+  hash: true,
   // ref: https://umijs.org/zh/config/#proxy
   proxy: {
     '/api': {
