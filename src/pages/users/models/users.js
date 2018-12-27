@@ -3,6 +3,7 @@
  * @description users model
  */
 
+import pathRegexp from 'path-to-regexp';
 import * as UsersServices from '../services/users';
 
 export default {
@@ -16,7 +17,8 @@ export default {
   subscriptions: {
     setup({ dispatch, history }) {
       return history.listen(({ pathname, query }) => {
-        if (pathname === '/users') {
+        console.log(pathRegexp(pathname));
+        if (pathRegexp(pathname).test('/users')) {
           dispatch({ type: 'fetch' });
         }
       });

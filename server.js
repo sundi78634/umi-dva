@@ -28,23 +28,14 @@ app.set('port', process.env.PORT || config.PORT);
 app.use('*', proxy(config.httpUrl, {
   proxyReqPathResolver: function (req) {
     const path = req.params[0].split('/').reverse();
-    console.log(path);
     return urljoin(config.httpUrl, `${path[0]}`);
   },
-  proxyReqOptDecorator: function (proxyReqOpts, srcReq) {
-    // you can update headers
-    proxyReqOpts.headers['Content-Type'] = 'application/x-www-form-urlencoded';
-    // you can change the method
-    proxyReqOpts.method = 'POST';
-    return proxyReqOpts;
-  },
   proxyReqBodyDecorator: function (bodyContent, srcReq) {
-    console.log(bodyContent);
-    return querystring.stringify(bodyContent);
+    return bodyContent;
   },
-  preserveHostHdr: true,
+  // preserveHostHdr: true,
   filter: function (req, res) {
-    return req.method === 'POST';
+    return req.method === 'GET';
   }
 }));
 

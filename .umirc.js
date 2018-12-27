@@ -22,6 +22,7 @@ export default {
     }],
   ],
   hash: true,
+  exportStatic: true,
   // ref: https://umijs.org/zh/config/#proxy
   proxy: {
     '/api': {
